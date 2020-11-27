@@ -1,0 +1,28 @@
+.main2 {
+    background-color: brown;
+}
+.rightpart {
+    background-color: brown;
+}
+.leftpart {
+    background-color: brown;
+}
+
+.logout {
+    margin-left: 1100px;
+}
+.firstbutton {
+    width: 100px;
+    margin-left: 430px;
+}
+.secondbutton {
+    width: 150px;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 830px;
+}
+
+/* .login {
+    position: absolute;
+    margin-left: 20px;
+} */
