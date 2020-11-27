@@ -35,40 +35,43 @@ class AllTask extends Component {
             <div>
                 <div>
                     {this.props.user ? (
-                        <div>
+                        <div className="">
                             {this.props.user.map((p) => (
-                                <div
-                                    class="card"
-                                    style={{
-                                        backgroundColor: "lightblue",
-                                    }}
-                                >
-                                    <div class="card-header">
-                                        Priority To Task :{p.priority_of_task}
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">{p.name}</h5>
-                                        <p class="card-text">
-                                            Description:{p.description}
-                                        </p>
-                                    </div>
+                                <div className="">
+                                    <div
+                                        class="card"
+                                        style={{
+                                            backgroundColor: "",
+                                        }}
+                                    >
+                                        <div class="card-header">
+                                            Priority To Task :
+                                            {p.priority_of_task}
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{p.name}</h5>
+                                            <p class="card-text">
+                                                Description:{p.description}
+                                            </p>
+                                        </div>
 
-                                    <button
-                                        type="button"
-                                        className="btn btn-danger firstbutton"
-                                        id={p._id}
-                                        onClick={this.handlechange}
-                                    >
-                                        Delet Task
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="btn btn-danger secondbutton"
-                                        id={p._id}
-                                        onClick={this.handleUpdate}
-                                    >
-                                        Update Task
-                                    </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-danger firstbutton"
+                                            id={p._id}
+                                            onClick={this.handlechange}
+                                        >
+                                            Delet Task
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-danger secondbutton"
+                                            id={p._id}
+                                            onClick={this.handleUpdate}
+                                        >
+                                            Update Task
+                                        </button>
+                                    </div>
                                 </div>
                             ))}
                         </div>

@@ -50,7 +50,7 @@ class Register extends Component {
         const { errors } = this.props.auth;
         console.log(this.props.auth.errors.message);
         return (
-            <div className="container-fluid ">
+            <div className="container-fluid main">
                 {/* google login */}
                 <div className="row mt-2">
                     <div className="col-md-2"></div>

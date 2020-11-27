@@ -29,6 +29,7 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password,
         };
+        console.log(newUser);
         const data = {
             newUser: newUser,
         };
@@ -54,7 +55,7 @@ class Login extends Component {
 
         console.log(this.props.auth);
         return (
-            <div className="container-fluid register">
+            <div className="container-fluid main">
                 <div className="row mt-2">
                     <div className="col-md-3"></div>
 

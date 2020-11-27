@@ -52,9 +52,11 @@ class Home extends Component {
                 <div className="flex">
                     <nav
                         class="navbar navbar-expand-lg navbar-light "
-                        style={{ backgroundColor: "lightblue" }}
+                        style={{
+                            maxWidth: "50rem",
+                        }}
                     >
-                        <b>Todo Application</b>
+                        <b style={{ color: "white" }}> Todo Application</b>
                         <button
                             class="navbar-toggler"
                             type="button"
@@ -70,7 +72,7 @@ class Home extends Component {
                             class="collapse navbar-collapse"
                             id="navbarNavAltMarkup"
                         >
-                            <div className="navbar-nav">
+                            <div className="navbar-nav mr-0 my-2 my-lg-0">
                                 {this.props.user.isAuthenticated !== false ? (
                                     <div className="logout">
                                         <button
@@ -81,23 +83,36 @@ class Home extends Component {
                                         </button>
                                     </div>
                                 ) : (
-                                    <div>
+                                    <div className="register">
                                         <div>
-                                            <Link
-                                                class="nav-item nav-link register"
-                                                to="/register"
-                                            >
-                                                Register
-                                            </Link>
+                                            <ul className="navbar-nav mr-0 my-2 my-lg-0">
+                                                <li class="btn btn-warning mr-sm-2">
+                                                    <Link
+                                                        class="nav-item nav-link register"
+                                                        to="/register"
+                                                        style={{
+                                                            fontWeight:
+                                                                "bolder",
+                                                        }}
+                                                    >
+                                                        Register
+                                                    </Link>
+                                                </li>
+                                                <li class="btn btn-warning mr-sm-2">
+                                                    <Link
+                                                        class="nav-item nav-link "
+                                                        to="/login"
+                                                        style={{
+                                                            fontWeight:
+                                                                "bolder",
+                                                        }}
+                                                    >
+                                                        Login
+                                                    </Link>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div className="login">
-                                            <Link
-                                                class="nav-item nav-link "
-                                                to="/login"
-                                            >
-                                                Login
-                                            </Link>
-                                        </div>
+                                        <div className="login"></div>
                                     </div>
                                 )}
 
@@ -109,25 +124,31 @@ class Home extends Component {
                     </nav>
                 </div>
 
-                <div className="main2 row">
-                    <div className="leftPart col-6">
-                        <button
-                            className="btn btn primary"
-                            onClick={this.todoSubmit}
-                            style={{ color: "white" }}
-                        >
-                            Create Todo
-                        </button>
+                <div className="main2 ">
+                    <h3 className="text">WanT To Create Todo??</h3>
+                    <div className="main3 row">
+                        <div className="col-3"></div>
+                        <div className="leftPart col-3">
+                            <button
+                                className="btn btn-dark"
+                                onClick={this.todoSubmit}
+                                style={{ color: "white" }}
+                            >
+                                Create Todo
+                            </button>
+                        </div>
+                        <div className="rightPart col-3 ">
+                            <button
+                                className="btn btn-dark"
+                                style={{ color: "white" }}
+                                onClick={this.alltodo}
+                            >
+                                Get All Todo
+                            </button>
+                        </div>
+                        <div className="col-3"></div>
                     </div>
-                    <div className="rightPart col-6">
-                        <button
-                            className="btn btn primary"
-                            style={{ color: "white" }}
-                            onClick={this.alltodo}
-                        >
-                            Get All Todo
-                        </button>
-                    </div>
+
                     {/* <div className="rightPart col-8">
                         <div className="">
                             {this.state.task === "" ? (
