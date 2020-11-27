@@ -18,3 +18,12 @@ Database: Mongodb
 For Authorization : Passport js,jwt token
 
 -steps to execute program:
+
+1. Type the url in search bar : https://corporate-coder-ass.herokuapp.com/
+2. When website loads user can perform operations
+
+Todo application deployed link:
+https://corporate-coder-ass.herokuapp.com/
+
+Github link:
+https://github.com/sneha-gurav-au6/corporate-coder-ass1
