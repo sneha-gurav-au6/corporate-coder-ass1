@@ -13,6 +13,7 @@ class Home extends Component {
     state = {
         task: "",
         user: "",
+        showCollapsedMenu: false,
         token: null,
     };
 
@@ -33,7 +34,11 @@ class Home extends Component {
             position: toast.POSITION.TOP_CENTER,
         });
     };
-
+    toggleMenu = () => {
+        this.setState({
+            showCollapsedMenu: !this.state.showCollapsedMenu,
+        });
+    };
     alltodo = async (e) => {
         e.preventDefault();
 
@@ -47,79 +52,109 @@ class Home extends Component {
     render() {
         console.log(this.props.user);
         console.log(this.props.user.user.id);
-        return (
-            <div className="main">
-                <div className="flex">
-                    <nav
-                        class="navbar navbar-expand-lg navbar-light "
+        const show1 = this.state.showCollapsedMenu ? "show" : null;
+        const logout = (
+            <li class="btn btn-warning mr-sm-2">
+                <button
+                    className="btn btn-primary "
+                    onClick={this.handleLogout}
+                >
+                    Logout
+                </button>
+            </li>
+        );
+
+        const registerLogin = (
+            <>
+                <li class="btn btn-warning mr-sm-2">
+                    <Link
+                        class="nav-link"
+                        to="/register"
                         style={{
-                            maxWidth: "50rem",
+                            fontWeight: "bolder",
                         }}
                     >
-                        <b style={{ color: "white" }}> Todo Application</b>
+                        Register
+                        <span class="sr-only">(current)</span>
+                    </Link>
+                </li>
+                <li class="btn btn-warning mr-sm-2">
+                    <Link
+                        class="nav-link"
+                        to="/login"
+                        style={{
+                            fontWeight: "bolder",
+                        }}
+                    >
+                        Login
+                        <span class="sr-only">(current)</span>
+                    </Link>
+                </li>
+            </>
+        );
+        return (
+            <div className="main">
+                <div className="">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+                        <b
+                            class="navbar-brand"
+                            style={{ fontWeight: "bolder" }}
+                        >
+                            Todo App
+                        </b>
                         <button
-                            class="navbar-toggler"
-                            type="button"
+                            className="navbar-toggler"
                             data-toggle="collapse"
-                            data-target="#navbarNavAltMarkup"
-                            aria-controls="navbarNavAltMarkup"
+                            data-target="#navbar-menu"
+                            type="button"
+                            aria-controls="navbarSupportedContent1"
                             aria-expanded="false"
                             aria-label="Toggle navigation"
+                            onClick={this.toggleMenu}
                         >
-                            <span class="navbar-toggler-icon"></span>
+                            <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div
+
+                        {/* <div
                             class="collapse navbar-collapse"
                             id="navbarNavAltMarkup"
                         >
                             <div className="navbar-nav mr-0 my-2 my-lg-0">
                                 {this.props.user.isAuthenticated !== false ? (
                                     <div className="logout">
-                                        <button
-                                            className="btn btn-primary "
-                                            onClick={this.handleLogout}
-                                        >
-                                            Logout
-                                        </button>
+                                       
                                     </div>
                                 ) : (
                                     <div className="register">
                                         <div>
                                             <ul className="navbar-nav mr-0 my-2 my-lg-0">
-                                                <li class="btn btn-warning mr-sm-2">
-                                                    <Link
-                                                        class="nav-item nav-link register"
-                                                        to="/register"
-                                                        style={{
-                                                            fontWeight:
-                                                                "bolder",
-                                                        }}
-                                                    >
-                                                        Register
-                                                    </Link>
-                                                </li>
-                                                <li class="btn btn-warning mr-sm-2">
-                                                    <Link
-                                                        class="nav-item nav-link "
-                                                        to="/login"
-                                                        style={{
-                                                            fontWeight:
-                                                                "bolder",
-                                                        }}
-                                                    >
-                                                        Login
-                                                    </Link>
-                                                </li>
+                                                
                                             </ul>
                                         </div>
                                         <div className="login"></div>
                                     </div>
                                 )}
 
-                                {/* <a class="nav-item nav-link disabled" href="#">
-                                Disabled
-                            </a> */}
+                              
                             </div>
+                        </div> */}
+                        <div
+                            className={"collapse navbar-collapse " + show1}
+                            id="navbarNav"
+                        >
+                            {/* <div
+                                className="collapse navbar-collapse"
+                                id="navbar-menu"
+                            ></div> */}
+                            <ul class="navbar-nav  mr-auto">
+                                <li class="nav-item active"></li>
+                            </ul>
+                            <ul className="navbar-nav">
+                                {" "}
+                                {this.props.user.isAuthenticated === false
+                                    ? registerLogin
+                                    : logout}
+                            </ul>
                         </div>
                     </nav>
                 </div>
